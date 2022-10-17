@@ -39,8 +39,8 @@ void selectionSort(int *a, int n) {
 
 //Selection Sort on Linked List
 int findAddressOfMax(int *a, int n){
-	int* amax= NULL;
-	if (n<1){
+	int* amax= NULL; 
+	if (n<1){//checking if n is greater than 1 or not i.e. if list elements exist
 		return -1;
 	}
 	else{
@@ -135,6 +135,8 @@ int main(int argc, char **argv) {
 	int listmaxaddr = findAddressOfMax(a,n);
 	printf("Address of max element in list = %d, value of max element = %d\n", maxindex, a[maxindex]);
 	printLinkedList(list);
+	
+	
 	free(a);
 	freeLinkedList(list);
 
