@@ -12,9 +12,10 @@ typedef struct node * NodeAddress;
 //Selection Sort on Array
 int findIndexOfMax(int *a, int n){
 	int imax;
-	//incase there are no elements in the list 
+	//special case for when there are no elements in the list 
 	if (n<1){
-		return -1;} //cannot be zero because 0 can be answer for second case also
+		return -1;
+	} //cannot return a zero here because 0 can be answer for second case also
 	else {
 		imax=0;//assuming that position of max element is 0th element of array
 		for(int i=0; i<n; i++){
