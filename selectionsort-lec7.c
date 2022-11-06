@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <time.h>
 
+#
+
 struct node {
 	int val;
 	struct node * next;	
@@ -18,23 +20,24 @@ int findIndexOfMax(int *a, int n){
 	} //cannot return a zero here because 0 can be answer for second case also
 	else {
 		imax=0;//assuming that position of max element is 0th element of array
-		for(int i=0; i<n; i++){
+		for(int i=0; i<n; i++){ //running a for loop throuhgout the array's elements
 			if (a[i]>a[imax]){ //if any element while traversing in the list is found to be greater than imax,
-			//replace imax witht the position of that element
+			//replace imax with the position of that element
 				imax=i;
 			}
 		} 
-		return imax;
+		return imax; //returning the position of the largest element
 	}
 }
 
 
 void selectionSort(int *a, int n) {
 	int i, imax, t;
-
 	for(i=n; i>1; i=i-1) {
-		imax = findIndexOfMax(a, i);
-		t = a[imax]; a[imax] = a[i-1]; a[i-1] = t;
+		imax = findIndexOfMax(a, i); //we store the value of the position of the largest element in the array in imax, let it start with 0
+		t = a[imax]; //store 
+		a[imax] = a[i-1]; 
+		a[i-1] = t;
 	}
 }
 
