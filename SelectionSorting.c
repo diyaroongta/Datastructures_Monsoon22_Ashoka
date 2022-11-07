@@ -33,10 +33,13 @@ int findIndexOfMin(int *a, int n){
 void selectionSort(int *a, int n) {
 	int i, imin, t;
 	for(i=0; i<n; i=i+1) {
-		imin = findIndexOfMin(a, i); //we store the value of the position of the largest element in the array in imax, let it start with 0
-		t = a[imin]; //store value of element at min position in temporary variable called t 
-		a[imin] = a[i+1]; //
-		a[i+1] = t;
+		imin = findIndexOfMin(a, n); //we store the value of the position of the minimum element in the array in imax, let it start with i
+		if(a[i]<a[imin]){
+            t = a[imin]; //store value of element at min position in temporary variable called t 
+            a[imin] = a[i+1]; //
+            a[i+1] = t;
+        }
+        
 	}
 }
 
@@ -68,13 +71,15 @@ int main(int argc, char **argv) {
 	srand(time(NULL));
 
 	a = generateArray(n);
+    printArray(a,n);
+
+    selectionSort(a,n);
+    printArray(a,n);
 	//list = linkedListFromArray(a,n);
 
-	printArray(a,n);
-    selectionSort(a, n);
-    printArray(a,n);    
+	
 	//int listmaxaddr = findAddressOfMax(a,n);
-	//printf("Address of max element in list = %d, value of max element = %d\n", maxindex, a[maxindex]);
+	// printf("Address of max element in list = %d, value of max element = %d\n", maxindex, a[maxindex]);
 	// printLinkedList(list);
 	
 	
