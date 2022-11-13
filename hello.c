@@ -5,9 +5,10 @@
 //     x=6;
 //     printf("%d\n", x);
 //     return 0;
-// }
+// 
 
 #include <stdio.h>
+
 int main(int argc, char **argy) {
 int x = 0;
 int y = x++;
