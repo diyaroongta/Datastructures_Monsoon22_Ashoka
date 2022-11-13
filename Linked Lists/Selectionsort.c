@@ -7,8 +7,6 @@ struct node{
 };
 
 struct node* start = NULL;
-
-//I dont want to traverse for add an item last position, i will use last->next
 struct node* last = NULL;
 struct node* temp;
 
@@ -85,12 +83,12 @@ void swapNode(struct node *x, struct node *y)
 
 int main()
 {
-    int choise;
+    int choice;
     while( 1 == 1)
     {
         printf("\n How many numbers do you want to create ... ");
-        scanf("%d", &choise);
-        init(choise);
+        scanf("%d", &choice);
+        init(choice);
         selectionLinked();
         printLinked();
     }
