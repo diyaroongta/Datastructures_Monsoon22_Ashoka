@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <time.h>
 
-
 struct node {
 	int val;
 	struct node * next;	
@@ -12,7 +11,7 @@ typedef struct node * NodeAddress; // creating a new data type called NodeAddres
 
 /* ================================================== */
 //Creating a linked list
-}
+
 NodeAddress linkedList(int n) {
 	int i;
 	NodeAddress head = NULL;
@@ -30,37 +29,32 @@ NodeAddress linkedList(int n) {
 	}
 
 
-	for(i=1; i<n; i++) {
-		temp->next = malloc( sizeof(struct node) );
-		temp = temp->next;
+	for(i=1; i<n; i++) { //for all elements starting from position 1 since we have already assigned 0 to head
+		temp->next = malloc( sizeof(struct node) ); //creating space for struct node size in memory
+		temp = temp->next; 
 		scanf("%d",&x);
 		temp->val = x;
 		temp->next = NULL;
 	}
-
 	return head;
 }
 
+/* ================================================== */
 //Reversing a linked list
 NodeAddress reverse(NodeAddress head)
 {
 	NodeAddress prev= NULL;
-	NodeAddress current=head;
+	NodeAddress current=head; //starting curremt from head i.e. first element 
 	NodeAddress next=NULL;
 
-	while(current!=NULL){
-		next=current->next;
-
-		//reversing current node's pointer
-		current->next=prev;
-
+	while(current!=NULL){ //till the current i.e. pointer does not point to NULL i.e. there are still elements left in the list
+		next=current->next; //shifting the pointer of next to current's next 
+		current->next=prev;	//reversing current node's pointer by assigning prev to it
 		//moving pointers ahead
 		prev=current;
 		current=next;
 	}
-	head=prev;
-	return head;
-
+	return prev;
 }
 
 /* ================================================== */
@@ -68,7 +62,7 @@ NodeAddress reverse(NodeAddress head)
 //Chunk-reversing a linked list
 NodeAddress Chunkreverse(NodeAddress head)
 {
-	printf("Enter the integer to represent the chunk size \n");
+	printf("Enter the integer to represent the chunk size \n"); //
 	int k=0;
 	scanf("%d",&k);
 	int c=0;
@@ -77,19 +71,15 @@ NodeAddress Chunkreverse(NodeAddress head)
 	NodeAddress current=head;
 	NodeAddress next=NULL;
 
-	while(current!=NULL && c<k) {
+	while(current!=NULL && c<k) { //simply adding condition 
 		next=current->next;
-
 		//reversing current node's pointer
 		current->next=prev;
-
 		//moving pointers ahead
 		prev=current;
 		current=next;
-		
 	}
-	head=prev;
-	return head;
+	return prev;
 }
 
 //Printing the linked list
@@ -128,7 +118,7 @@ int main(int argc, char **argv) {
 
 	NodeAddress list;
 	list=linkedList(n);
-    printLinkedList(list);
+        printLinkedList(list);
 
 	NodeAddress revhead;
 	revhead=reverse(list);
@@ -139,7 +129,7 @@ int main(int argc, char **argv) {
 	printLinkedList(Chunk_rev_head);
 
 
-    freeLinkedList(list);
+        freeLinkedList(list);
 
 	return 0;
 }
