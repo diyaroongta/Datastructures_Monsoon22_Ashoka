@@ -28,6 +28,15 @@ void quickSort(int *a, int leftmost, int rightmost){
     }
 }
 
+//generating array with random integers
+int * generateArray(int n) {
+	int * t = malloc( n * sizeof(int) );
+	if(t) {
+		for(int i=0; i<n; i++) {t[i] = rand()%100;}
+	}
+	return t;
+}
+
 //function to print the array 
 void printArray(int * a, int n) {
 	printf("Array = ");
