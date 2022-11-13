@@ -78,8 +78,11 @@ NodeAddress Chunkreverse(NodeAddress head)
 		//moving pointers ahead
 		prev=current;
 		current=next;
+		c++; // for iteration till k
 	}
-	return prev;
+	//The pointers till kth element has been reversed
+	start->next=current;
+	return prev; //pointer to the kth element
 }
 
 //Printing the linked list
@@ -118,7 +121,7 @@ int main(int argc, char **argv) {
 
 	NodeAddress list;
 	list=linkedList(n);
-        printLinkedList(list);
+    printLinkedList(list);
 
 	NodeAddress revhead;
 	revhead=reverse(list);
@@ -129,7 +132,7 @@ int main(int argc, char **argv) {
 	printLinkedList(Chunk_rev_head);
 
 
-        freeLinkedList(list);
+    freeLinkedList(list);
 
 	return 0;
 }
