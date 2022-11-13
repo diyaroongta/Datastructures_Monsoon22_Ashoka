@@ -45,7 +45,6 @@ int main(){
 
 	  a = generateArray(n);
     printArray(a,n);
-    selectionSort(a, n);
 
     printf("Sorted array: \n");
     quickSort(a, 0, n-1);
