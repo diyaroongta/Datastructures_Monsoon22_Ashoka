@@ -20,18 +20,36 @@ int partition(int *a, int leftmost, int rightmost){
   return pIndex;
 }
 
-void quickSort(int *a, int start, int end){
-    if(a && start < end){
-        int pIndex = partition(a, start, end);
-        quickSort(a, start, pIndex-1);
-        quickSort(a, pIndex+1, end);
+void quickSort(int *a, int leftmost, int rightmost){
+    if(a && leftmost < rightmost){
+        int pIndex = partition(a, leftmost, rightmost);
+        quickSort(a, leftmost, pIndex-1);
+        quickSort(a, pIndex+1, rightmost);
     }
 }
 
-void main(){
-    int a[] = {7, 2, 1, 6, 8, 4, 3, 4};
-    int n = sizeof(a)/sizeof(a[0]);
+//function to print the array 
+void printArray(int * a, int n) {
+	printf("Array = ");
+	for(int i=0; i<n; i++) {
+		printf( i?", %d":"%d", a[i]);
+	}
+	printf(".\n");
+}
+
+int main(){
+    int * a;
+	  int n = 10;
+
+	  srand(time(NULL));
+
+	  a = generateArray(n);
+    printArray(a,n);
+    selectionSort(a, n);
+
+    printf("Sorted array: \n");
     quickSort(a, 0, n-1);
-    for (int i = 0; i < n; i++){
-        printf("%d ", a[i]);
-    }
+    return 0;
+  
+    
+}
