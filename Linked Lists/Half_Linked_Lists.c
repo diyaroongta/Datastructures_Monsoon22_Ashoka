@@ -10,7 +10,7 @@ struct node {
 typedef struct node * NodeAddress; // creating a new data type called NodeAddress with two datatypes: int and struct node pointer
 
 /* ================================================== */
-//Creating a function to calculate the full and half length of list 
+//Creating a function to calculate the full and half length of list using hare and tortoise algorithm
 void find_half(NodeAddress head)
 {
   NodeAddress h;
@@ -23,7 +23,7 @@ void find_half(NodeAddress head)
   printf("%d\n",t->val); // printing the element at NodeAddress tortoise as the pointer can only increment till middle of the linked list
   // incrementing the hare twice as fast as tortoise
    h = h -> next;
-   h = h -> next;
+   h = h -> next;//incrementing h by 2 elements while t by only 1 so that when h reaches the end, tortoise will be at the middle position
    t = t->next;
    }
 }
