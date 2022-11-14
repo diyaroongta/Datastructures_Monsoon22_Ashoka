@@ -5,7 +5,7 @@
 int partition(int *a, int leftmost, int rightmost){
   //assign pivot index to thre rightmost element of the array  
   int pivot = a[rightmost];
-  int ind = leftmost;
+  int ind = leftmost; //integer of index
   for (int i = leftmost; i < rightmost; i++){
       if(a[i] <= pivot){
           int temp = a[i];
@@ -45,11 +45,7 @@ int main(){
 
 	  a = generateArray(n);
     printArray(a,n);
-    selectionSort(a, n);
-
     printf("Sorted array: \n");
     quickSort(a, 0, n-1);
     return 0;
-  
-    
 }
