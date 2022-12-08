@@ -1,24 +1,26 @@
 #include <stdio.h> 
 #include <stdlib.h>
 
-void swap(int* p, int* q) //this function swaps 
+void swap(int* p, int* q) //function to swap two inputed integers
 { 
-    int temp; // initialising temp variable to swap
-    temp = *p; // method to swap explained in earlier codes 
+    int temp; 
+    temp = *p; 
     *p = *q; 
     *q = temp;
 }
 // creating a heap from an array, sort it using heapsort and then call the function to find largest elements
+//In this code, we will convert an array to a heap and then sort it using heapsort
+//Further, we will find heap_max
 
-//Adding the code for heapify and sorting an array using heap here, incase we are not given a max heap in a sorted order:
+//heapify converts an array into a heap
 void heapify(int array[], int n, int k) //creating heap from an array
 {
-    
+    //we will compare the three elemenets — left node, right node and temp_large 
     int temp_large = k; 
-    int left = 2 * k + 1; 
+    int left = 2 * k + 1;  
     int right = 2 * k + 2;
- 
-    // if the current parent i.e. temp_large or the root is smaller than the left child:
+    
+    //
     if (left < n && array[left] < array[temp_large]){ //from my min heap code on github, we have simply switched the signs for greater than and 
     //less than in the second condition of this statement as in a max heap, the parent has to be greater than both child nodes
         temp_large = left; 
