@@ -1,6 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
- 
+//used code from the internet and wrote this because I was not able to fully figure it out on my own 
 
 struct Node
 {
