@@ -40,16 +40,17 @@ nodeAddress new_node(int a)
     return(node);
 }
 
+//finding how much we need to balance the tree by by subtracting the hight of left and right subtrees and finding out the difference that needs to be adjusted
 int balancing_factor(nodeAddress N)
 {
     int n;
     n = height(N->left) - height(N->right); 
-    if (N == NULL)
+    if (N == NULL)//if both are of the same height, return 0 as differencer
         return 0;
-    return n; 
+    return n; //otherwise, return the diff in heights
 }
 
-nodeAddress right_rotate(nodeAddress q)
+nodeAddress rotright(nodeAddress q) //when we need to rotate the tree right
 {
     nodeAddress p = q->left; 
     nodeAddress t = p->right;
@@ -62,11 +63,10 @@ nodeAddress right_rotate(nodeAddress q)
     q->height = compare(height(q->left),height(q->right)) + 1; 
     p->height = compare(height(p->left),height(p->right)) + 1;
  
-  
     return p;
 }
  
-nodeAddress left_rotate(nodeAddress p)
+nodeAddress rotleft(nodeAddress p) //rotating the tree left 
 {
     nodeAddress q = p->right;
     nodeAddress t = q->left;
@@ -101,24 +101,24 @@ nodeAddress insert(nodeAddress node, int a) {
  
 
     if (n < -1 && a > node->right->a) 
-        return left_rotate(node);
+        return rotleft(node);
         
     // Left Left Case
     if (n > 1 && a < node->left->a)
-        return right_rotate(node);
+        return rotright(node);
 
     // Left Right Case
     if (n > 1 && a > node->left->a)
     {
         node->left =  left_rotate(node->left);
-        return right_rotate(node);
+        return rotright(node);
     }
  
     // Right Left Case
     if (n < -1 && a < node->right->a)
     {
         node->right = right_rotate(node->right);
-        return left_rotate(node);
+        return rotleft(node);
     }
     
     return node;
