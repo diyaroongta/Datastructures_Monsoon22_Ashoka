@@ -22,3 +22,5 @@ So here's my list of coding attempts for this course :)
 13. Heaps and Heapsort - in the Binary Trees branch
 14. AVL Trees - in the main branch
 15. Skip Lists - in the main branch
+
+These are according to the GitHub Tracker List that was given to us, however, there are a few extra codes 
