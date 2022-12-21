@@ -27,6 +27,24 @@ int height(nodeAddress N)
     return N->height;
 }
  
+//Finding the minimum node of the tree
+
+NodeAddress min (NodeAddress root)//initially starting off with min = root 
+{
+    NodeAddress x = val;
+    while (x -> left)
+        x = x -> left;
+    return x;
+}
+
+//Finding the max node of the tree
+NodeAddress max (NodeAddress root)
+{
+    NodeAddress x = val;
+    while (x -> right)
+        x = x -> right;
+    return x;
+}
 
  
 nodeAddress new_node(int a)
