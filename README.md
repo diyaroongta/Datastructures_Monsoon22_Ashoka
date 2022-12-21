@@ -6,4 +6,4 @@ I have included in class codes as well as deliverables that we have had for the 
 
 I've created different folders for the types of data structures wherever possible, and have included both homeworks as well as their respective class codes in those.
 
-So here's my list of (mostly failed) coding attempts for this course :)
+So here's my list of coding attempts for this course :)
